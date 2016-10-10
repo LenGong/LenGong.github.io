@@ -7,7 +7,11 @@ import '@angular/http';
 import '@angular/router';
 
 // RxJS
-import './app/shared/rxjs-extensions';
+import  'rxjs/Observable'
+import  './public/rxjs/rxjs-extensions';
+
 
 // Other vendors for Bootstrap
-import './shared/bootstrap/css/bootstrap.min.css';
+import './public/bootstrap/css/bootstrap.min.css';
+import './public/main.css';
+import './public/cr.js';

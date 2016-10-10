@@ -1,0 +1,13 @@
+.navbar-default{
+  box-shadow: 0 2px 6px #888;
+}
+
+.navbar-brand img {
+  float: left;
+  margin: -10px 10px 0 0;
+  border-radius: 100%;
+}
+
+.text-center:hover{
+  border-bottom: 2px solid blue;
+}

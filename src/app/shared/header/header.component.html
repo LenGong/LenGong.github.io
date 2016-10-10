@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container ex">
+        <div class="navbar-header">
+            <button type="button" (click)="onClickEx()" class="navbar-toggle ">
+              主菜单 <span  class="caret"></span>
+            </button>
+            <a class="navbar-brand" routerLink="{{logo.patch}}"><img [src]="logo.imgTitle" />{{logo.title}}</a>
+        </div>
+        <div [ngClass]="{'collapse': isEx, 'navbar-collapse': isEx}">
+            <ul class="nav navbar-nav">
+                <li *ngFor="let caption of captions"  routerLinkActive="active" class="text-center" (click)="onClickEx()"><a routerLink="{{caption.patch}}"><span class="{{caption.imgFont}}"></span> {{caption.title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="padding:35px">
+</div>
