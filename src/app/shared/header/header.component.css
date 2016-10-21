@@ -11,3 +11,19 @@
 .text-center:hover{
   border-bottom: 2px solid blue;
 }
+
+.mtitle {
+  background-color: transparent;
+  border-bottom-color: red;
+  box-shadow: 0 0 0 transparent;
+}
+
+.mtitle a, .mtitle .navbar-header {
+  color: #AAA;
+  background-color: transparent;
+}
+
+.mtitle a:hover{
+  color: #FFF;
+  background-color: transparent;
+}

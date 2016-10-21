@@ -5,6 +5,7 @@ import { routing } from './main.routing';
 import { MainComponent } from './main.component';
 import { JumbComponent} from './jumb';
 
+
 @NgModule({
   imports: [CommonModule, routing],
   declarations: [MainComponent, JumbComponent],
