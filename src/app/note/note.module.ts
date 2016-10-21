@@ -8,4 +8,4 @@ import { NoteComponent } from './note.component';
   imports: [CommonModule, routing],
   declarations: [NoteComponent],
 })
-export class NoteModule { }
+export  class NoteModule { }

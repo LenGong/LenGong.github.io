@@ -11,10 +11,18 @@ export class HeaderComponent {
   logo = this.TConfig.logo;
   captions = this.TConfig.captions;
   isEx = true;
+  isCss = true;
 
   constructor(@Inject(TitleConfig) private TConfig:Btitle) {  }
 
-  onClickEx(){
+  onClickEx(title:string){
     this.isEx = !this.isEx;
+    if(this.TConfig.captions[0].title === title){
+      this.isCss = true;
+    }
+    else
+    {
+      this.isCss = false;
+    }
   }
 }

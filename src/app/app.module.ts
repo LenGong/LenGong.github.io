@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 //头部、脚部
-import { HeaderComponent, FooterComponent} from './shared';
+import { HeaderComponent, FooterComponent } from './shared';
 
 //核心模块，包括全应用服务
 import { CoreModule }  from './core';
@@ -16,7 +16,7 @@ import { CoreModule }  from './core';
 import { MainModule } from './main';
 import { DocmentModule } from './docment';
 import { GameModule } from './game';
-import { NoteModule } from './note';
+// import { NoteModule } from './note';
 import { PictureModule } from './picture';
 import { ResumeModule } from './resume';
 
@@ -30,7 +30,7 @@ import { routing } from './app.routing';
     MainModule,
     DocmentModule,
     GameModule,
-    NoteModule,
+    // NoteModule,
     PictureModule,
     ResumeModule
   ],
