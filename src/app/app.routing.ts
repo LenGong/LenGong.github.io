@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-  {path: 'note', loadChildren:"es6-promise!./note/note.module#NoteModule"}
+  {path: 'note', loadChildren:"es6-promise?[name]!./note/note.module#NoteModule"}
 ];
 
 

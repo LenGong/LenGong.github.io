@@ -1,4 +1,5 @@
-const  logo:Object = require('./images/logo.png');
+
+const logo:Object ='./images/logo.png';
 
 export interface Btitle {
     logo:{title:string, patch:string, imgTitle?:Object},
