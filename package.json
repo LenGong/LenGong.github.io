@@ -16,6 +16,8 @@
     "@angular/platform-browser-dynamic": "^2.0.1",
     "@angular/platform-server": "^2.1.0",
     "@angular/router": "^3.0.1",
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.45",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.0-beta.12",
@@ -27,7 +29,7 @@
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.25.0",
     "es6-promise-loader": "^1.0.2",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
@@ -35,14 +37,16 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.1",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.9",
     "webpack-merge": "^0.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --colors --port 9000",
-    "build": "rimraf dist && webpack --progress --colors",
-    "typings": "typings"
+    "start": "webpack-dev-server --inline --progress --port 9000",
+    "build-jit": "rimraf dist && webpack  --progress --config webpack.prod.js",
+    "build-aot": "rimraf dist && webpack  --progress --config webpack.aot.js",
+    "typings": "typings",
+    "tsc": "tsc",
+    "ngc": "ngc -p tsconfig-aot.json"
   }
 }

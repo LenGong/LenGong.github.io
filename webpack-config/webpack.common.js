@@ -7,11 +7,10 @@ module.exports = {
   entry: {
     'polyfills':helpers.root('src', 'polyfills.ts'),
     'vendor': helpers.root('src', 'vendor.ts'),
-    'app': helpers.root('src', 'main.ts'),
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['.js', '.ts']
   },
 
   module: {
@@ -32,7 +31,9 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loader: "css-loader"})
       },
       {
         test: /\.css$/,
