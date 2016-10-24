@@ -4,8 +4,11 @@ var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers.js');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-eval-source-map',
 
+  devtool: 'cheap-module-eval-source-map',
+  entry: {
+    'app': helpers.root('src', 'main.ts'),
+  },
   output: {
     path: helpers.root('dist'),
     publicPath: 'http://localhost:9000/',
@@ -14,7 +17,7 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+      new ExtractTextPlugin('[name].css')
   ],
 
   devServer: {

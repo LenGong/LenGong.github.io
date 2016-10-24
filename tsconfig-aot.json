@@ -9,7 +9,13 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "types": []
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "typeRoots": [ "./node_modules/@types" ],
+    "types": [
+      "core-js",
+      "node"
+    ]
   },
 
   "files": [
@@ -17,7 +23,9 @@
     "./src/main.ts",
     "./typings/index.d.ts"
   ],
-
+  "exclude": [
+      "node_modules"
+  ],
   "angularCompilerOptions": {
    "genDir": "aot",
    "skipMetadataEmit" : true
