@@ -7,5 +7,6 @@ import { TitleConfig, Btitle } from '../../core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+  footTitle:Btitle = this.TConfig;
   constructor(@Inject(TitleConfig) private TConfig:Btitle) {  }
 }
