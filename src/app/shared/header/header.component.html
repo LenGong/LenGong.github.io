@@ -8,7 +8,7 @@
         </div>
         <div [ngClass]="{'collapse': isEx, 'navbar-collapse': isEx}">
             <ul class="nav navbar-nav">
-                <li *ngFor="let caption of captions"  routerLinkActive="active" class="text-center" (click)="onClickEx(caption.title)"><a [routerLink]="caption.patch"><span [class]="caption.imgFont"></span> {{caption.title}}</a>
+                <li *ngFor="let caption of captions"  routerLinkActive="active" class="text-center" (click)="onClickEx()"><a [routerLink]="caption.patch"><span [class]="caption.imgFont"></span> {{caption.title}}</a>
                 </li>
             </ul>
         </div>

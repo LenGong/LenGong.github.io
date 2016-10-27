@@ -1,19 +1,22 @@
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var commonConfig = require('./webpack.common.js');
-var helpers = require('./helpers');
+var commonConfig = require('./webpack-config/webpack.common.js');
+var helpers = require('./webpack-config/helpers.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
   entry: {
-    'app': helpers.root('src', 'main.ts'),
+    'polyfills':helpers.root('src', 'polyfills.ts'),
+    'vendor': helpers.root('src', 'vendor.ts'),
+    'app': helpers.root('src', 'main.aot.ts'),
   },
+
   output: {
-    path: helpers.root('dist'),
-    publicPath: '/dist/',
+    path: helpers.root('dest'),
+    publicPath: '/dest/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].chunk.js'
   },
@@ -23,15 +26,10 @@ module.exports = webpackMerge(commonConfig, {
   // },
 
   plugins: [
-    //new webpack.NoErrorsPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-    // https://github.com/angular/angular/issues/10618
-      mangle: {
-        keep_fnames: true
-      }
-    }),
-    new ExtractTextPlugin('[name].[hash].css'),
+    new webpack.NoErrorsPlugin(),
+    //new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('styles/[name].[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(ENV)

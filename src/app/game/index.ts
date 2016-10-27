@@ -1,3 +1,3 @@
 export * from './game.component';
 export * from './game.module';
-export * from  './game.routing';
+export * from  './game-routing.module';

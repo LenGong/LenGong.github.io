@@ -1,11 +1,12 @@
 
-const logo:Object ='./images/logo.png';
+const logo:string = '/public/images/logo.png'
 
 export interface Btitle {
-    logo:{title:string, patch:string, imgTitle?:Object},
-    captions:[{title:string, patch:string, imgFont?:string}],
-    footer:{}
+    logo:{title:string, patch:string, imgTitle?:string};
+    captions:[{title:string, patch:string, imgFont?:string}];
+    footer:{email:string,telephone:string, address:string, copyright:string}
 }
+
 
 export const BTITLE: Btitle = {
     logo: { title: 'Len\'s Blog', patch:'main', imgTitle: logo },

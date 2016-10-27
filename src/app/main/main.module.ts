@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import { routing } from './main.routing';
+import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { JumbComponent} from './jumb';
 
 
 @NgModule({
-  imports: [CommonModule, routing],
+  imports: [CommonModule,  MainRoutingModule],
   declarations: [MainComponent, JumbComponent],
   providers: []
 })

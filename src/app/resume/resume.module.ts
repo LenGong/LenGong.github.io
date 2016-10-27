@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import { routing } from './resume.routing';
+import { ResumeRoutingModule } from './resume-routing.module';
 import { ResumeComponent } from './resume.component';
 
 @NgModule({
-  imports: [CommonModule, routing],
+  imports: [CommonModule, ResumeRoutingModule],
   declarations: [ResumeComponent],
 })
 export class ResumeModule { }
