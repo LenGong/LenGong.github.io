@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import { routing } from './picture.routing';
+import { PictureRoutingModule } from './picture-routing.module';
 import { PictureComponent } from './picture.component';
 
 @NgModule({
-  imports: [CommonModule, routing],
+  imports: [CommonModule, PictureRoutingModule],
   declarations: [PictureComponent],
 })
 export class PictureModule { }

@@ -33,6 +33,7 @@
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
+    "http-server": "^0.9.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
@@ -42,11 +43,11 @@
     "webpack-merge": "^0.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 9000",
-    "build-jit": "rimraf dist && webpack  --progress --config webpack.prod.js",
-    "build-aot": "rimraf dist && webpack  --progress --config webpack.aot.js",
-    "typings": "typings",
-    "tsc": "tsc",
-    "ngc": "ngc -p tsconfig-aot.json"
+    "start": "webpack-dev-server",
+    "start-aot": "npm run ngc && webpack-dev-server --config webpack.aot.js",
+    "build": "rimraf dist && webpack  --progress --config webpack.prod.js",
+    "build-aot": "npm run ngc &&  rimraf dest && webpack --progress --config webpack.aot.prod.js",
+    "ngc": "rimraf aot && ngc -p tsconfig-aot.json",
+    "server": "http-server  -a 0.0.0.0 -p 9002"
   }
 }
