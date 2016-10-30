@@ -13,5 +13,4 @@
 
 // Other vendors for Bootstrap
 import './public/bootstrap/css/bootstrap.min.css';
-import './public/main.css';
 import './public/cr.js';

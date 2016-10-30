@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default navbar-fixed-top" [ngClass]="{'mtitle': isCss}">
+<nav class="navbar navbar-default navbar-fixed-top" [ngClass]="{'mtitle': (isCss && isEx) }">
     <div class="container ex">
         <div class="navbar-header">
-            <button type="button" (click)="onClickEx()" class="navbar-toggle ">
+            <button type="button" (click)="onClickEx()" class="navbar-toggle">
               主菜单 <span  class="caret"></span>
             </button>
             <a class="navbar-brand" [routerLink]="logo.patch"><img [src]="logo.imgTitle" />{{logo.title}}</a>

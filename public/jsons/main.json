@@ -1,0 +1,19 @@
+{
+  "data":[
+    {"title":"学习Angular2的练习",
+      "badge":"NG",
+      "imgurl":"/public/images/angular.png",
+      "content":"最近开始学习Angular2，为了边学边练，本站采用Angular2框架进行练习开发。学习如何基于 Angular 构建应用程序，并复用代码和技能来构建适用于所有平台的应用。比如： Web 应用、移动 Web 应用、原生移动应用和原生桌面应用等。"
+    },
+    {"title":"10年前的编译的linux系统",
+      "badge":"Linux",
+      "imgurl":"/public/images/lfs.jpg",
+      "content":"这是十年前编译的Blfs系统，如今开始转战JS。但记得：Linux From Scratch (LFS) is a project that provides you with step-by-step instructions for building your own customized Linux system entirely from source.Beyond Linux From Scratch (BLFS) is a project that continues where the LFS book finishes. It assists users in developing their systems according to their needs by providing a broad range of instructions for installing and configuring various packages on top of a base LFS system."
+    },
+    {"title":"AOT与JIT对照",
+      "badge":"AOT",
+      "imgurl":"/public/images/aot.png",
+      "content":"这是利用webpack打包在线编译(JIT)与离线编译(AOT)的对照图。最后说明一下，本站没有实值内容，找了一些东东，做成json数据，只是为了练习占位。"
+    }
+  ]
+}

@@ -21,14 +21,14 @@
 
 .text-top{
   display: inline-block;
-  margin-top: 30%;
+  margin-top: 24%;
   padding: 20px 10px;
   text-align: center;
   border: 2px solid #AAA;
   border-radius: 100%;
-  font-size: 60px;
+  font-size: 56px;
   color: #AAA;
-  line-height: 60px;
+  line-height: 56px;
   cursor: pointer;
 }
 

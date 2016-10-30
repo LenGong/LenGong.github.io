@@ -1,21 +1,15 @@
 <gl-jumb></gl-jumb>
 <div class="container">
-    <div class="media">
-        <a class="media-left" href="#">
-            <img src="#" alt="...">
-        </a>
-        <div class="media-body col-xs-12">
-            <h4 class="media-heading">Media heading</h4>
-            <p>这是奇数的</p>
+    <div  *ngFor = "let main of mains; let i = index;" class="row">
+        <div class="col-sm-4" *ngIf="i%2==0">
+            <img class="img-responsive img-thumbnail" [src]="main.imgurl" alt="..." />
         </div>
-    </div>
-    <div class="media">
-        <div class="media-body">
-            <h4 class="media-heading">Media heading</h4>
-            <p>这是奇数的</p>
+        <div class="col-sm-8">
+            <h3 class="media-heading">{{main.title}} <span class="badge">{{main.badge}}</span></h3>
+            <p>{{main.content}}</p>
         </div>
-        <a class="media-right" href="#">
-          <img src="#" alt="...">
-        </a>
+        <div class="col-sm-4" *ngIf="i%2==1">
+            <img class="img-responsive img-thumbnail" [src]="main.imgurl" alt="..." />
+        </div>
     </div>
 </div>
