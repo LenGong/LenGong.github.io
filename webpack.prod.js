@@ -7,35 +7,47 @@ var helpers = require('./webpack-config/helpers.js');
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'source-map',
-  entry: {
-    'polyfills':helpers.root('src', 'polyfills.ts'),
-    'vendor': helpers.root('src', 'vendor.ts'),
-    'app': helpers.root('src', 'main.ts'),
-  },
+    entry: {
+        'polyfills': helpers.root('src', 'polyfills.ts'),
+        'vendor': helpers.root('src', 'vendor.ts'),
+        'app': helpers.root('src', 'main.ts'),
+    },
 
-  output: {
-    path: helpers.root('dist'),
-    publicPath: '/dist/',
-    filename: '[name].[hash].js',
-    chunkFilename: '[id].[hash].chunk.js'
-  },
+    output: {
+        path: helpers.root('dist'),
+        publicPath: '/dist/',
+        filename: '[name].[hash].js',
+        chunkFilename: '[id].[hash].chunk.js'
+    },
 
-  // loader: {
-  //   htmlLoader: {
-  //       minimize: false // workaround for ng2
-  //   },
-  // },
+    module: {
+        loaders: [{
+            test: /\.ts$/,
+            loaders: ['ts-loader', 'angular2-template-loader',
+                'angular2-load-children-loader'
+            ]
+        }]
+    },
 
-  plugins: [
-    new webpack.NoErrorsPlugin(),
-    //new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('styles/[name].[hash].css'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'ENV': JSON.stringify(ENV)
-      }
-    })
-  ]
+    plugins: [
+        new webpack.NoErrorsPlugin(),
+        //new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: true
+        }),
+        new ExtractTextPlugin('styles/[name].[hash].css'),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(ENV)
+            }
+        })
+    ],
+
+    devtool: 'source-map'
 });

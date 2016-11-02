@@ -1,35 +1,37 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": true,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "outDir": "./aot",
-    "rootDir": "./src",
-    "typeRoots": [ "./node_modules/@types" ],
-    "types": [
-      "core-js",
-      "node"
-    ]
-  },
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "./aot",
+        "rootDir": "./src",
+        "typeRoots": ["./node_modules/@types"],
+        "types": [
+            "core-js",
+            "node"
+        ]
+    },
 
-  "files": [
-    "./src/main.ts",
-    "./src/app/game/game.module.ts",
-    "./src/app/picture/picture.module.ts",
-    "./src/polyfills.ts",
-    "./src/vendor.ts"
-  ],
-  "exclude": [
-      "node_modules"
-  ],
-  "angularCompilerOptions": {
-   "genDir": "./aot/ng",
-   "skipMetadataEmit" : true
- }
+    "files": [
+        "./src/main.ts",
+        "./src/app/game/game.module.ts",
+        "./src/app/picture/picture.module.ts",
+        "./src/polyfills.ts",
+        "./src/vendor.ts"
+    ],
+
+    "exclude": [
+        "node_modules"
+    ],
+
+    "angularCompilerOptions": {
+        "genDir": "./aot/ng",
+        "skipMetadataEmit": true
+    }
 }
