@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, DoCheck } from '@angular/core';
+import { Component, Inject, OnInit, DoCheck, Input } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 import { TitleConfig, Btitle } from '../../core';
@@ -9,6 +9,7 @@ import { TitleConfig, Btitle } from '../../core';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, DoCheck {
+    @Input() wheel:boolean;
     readonly logo = this.TConfig.logo;
     readonly captions = this.TConfig.captions;
     isEx: boolean = true;

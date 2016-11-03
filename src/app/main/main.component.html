@@ -1,6 +1,6 @@
 <gl-jumb></gl-jumb>
 <div class="container">
-    <div  *ngFor = "let main of mains; let i = index;" class="row">
+    <div *ngFor="let main of mains; let i = index;" class="row">
         <div class="col-sm-4" *ngIf="i%2==0">
             <img class="img-responsive img-thumbnail" [src]="main.imgurl" alt="..." />
         </div>
