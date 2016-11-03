@@ -7,7 +7,6 @@ export interface Btitle {
     footer:{email:string,telephone:string, address:string, copyright:string}
 }
 
-
 export const BTITLE: Btitle = {
     logo: { title: 'Len\'s Blog', patch:'main', imgTitle: logo },
     captions: [
