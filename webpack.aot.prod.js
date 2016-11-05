@@ -39,7 +39,7 @@ module.exports = webpackMerge(commonConfig, {
             output: {
                 comments: false
             },
-            sourceMap: true
+            sourceMap: false
         }),
         new ExtractTextPlugin('styles/[name].[hash].css'),
         new webpack.DefinePlugin({
@@ -49,5 +49,5 @@ module.exports = webpackMerge(commonConfig, {
         })
     ],
 
-    devtool: 'source-map'
+    // devtool: 'source-map'
 });
