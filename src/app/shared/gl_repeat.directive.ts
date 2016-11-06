@@ -7,6 +7,7 @@ export class GlRepeatDirective {
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef
     ) { }
+    
     @Input() set glRepeat(num: number) {
         while (num--) {
             this.viewContainer.createEmbeddedView(this.templateRef);

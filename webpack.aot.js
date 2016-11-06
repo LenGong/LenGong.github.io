@@ -37,5 +37,5 @@ module.exports = webpackMerge(commonConfig, {
         stats: 'minimal'
     },
 
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 });
