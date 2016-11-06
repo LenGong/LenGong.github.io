@@ -34,12 +34,12 @@ export class HeaderComponent implements OnInit, DoCheck {
         };
     }
 
-    onClickEx(curr: string): void {
+    onClickEx(curr?: string): void {
         this.isEx = !this.isEx;
         if (curr === "main") {
             this.isEx = true;
         }
-        
+
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
     }
