@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 //头部、脚部模板
-import { HeaderComponent, FooterComponent } from './shared';
+import { SharedModule, HeaderComponent, FooterComponent } from './shared';
 
 //特性模块
 import { MainModule } from './main';
@@ -24,8 +24,10 @@ import { NoteModule } from './note';
 //import { PictureModule } from './picture';
 
 @NgModule({
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     CoreModule,
+    SharedModule,
     AppRoutingModule,
     MainModule,
     DocmentModule,

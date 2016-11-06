@@ -8,23 +8,23 @@
             var styles = '<style>' +
                 '@keyframes anmi {' +
                     '0% {transform: scale(0);'+
-                    'box-shadow: 2px 2px 2px #666;' +
+                    'box-shadow: 0 0 0 #dce011;' +
                     'opacity:1;' +
                     '}'+
                     '25% {transform: scale(0.6);'+
-                    'box-shadow: 4px 4px 2px #EEE;' +
+                    'box-shadow: 2px 2px 2px #dd2020;' +
                     'opacity:0.8' +
                     '}'+
                     '50% {transform: scale(0.3);'+
-                    'box-shadow: 2px 2px 2px #666;' +
+                    'box-shadow: 0 0 0 #dce011;' +
                     'opacity:0.2' +
                     '}'+
                     '75% {transform: scale(0.8);'+
-                    'box-shadow: 4px 4px 2px #EEE;' +
+                    'box-shadow: 2px 2px 2px #dd2020;' +
                     'opacity:1' +
                     '}'+
                     '100% {transform: scale(1);' +
-                    'box-shadow: 2px 2px 2px #666;' +
+                    'box-shadow: 0 0 0 #dce011;' +
                     'opacity:0;' +
                     '}'+
                 '}' +

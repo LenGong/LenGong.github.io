@@ -9,10 +9,10 @@ import { TitleConfig, Btitle } from '../../core';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, DoCheck {
-    @Input() wheel:boolean;
+    @Input() wheel: boolean;
     readonly logo = this.TConfig.logo;
     readonly captions = this.TConfig.captions;
-    isEx: boolean = true;
+    isEx: boolean;
     isCss: boolean;
 
     constructor(
@@ -21,9 +21,8 @@ export class HeaderComponent implements OnInit, DoCheck {
     ) { }
 
     ngOnInit() {
-        this.isEx = true;
         this.route.url.forEach((url: UrlSegment[]) => {
-            this.isCss = (url[0].path === '') ? true : false;
+            this.isEx = this.isCss = (url[0].path === '') ? true : false;
         });
     }
 
@@ -35,7 +34,13 @@ export class HeaderComponent implements OnInit, DoCheck {
         };
     }
 
-    onClickEx(): void {
+    onClickEx(curr: string): void {
         this.isEx = !this.isEx;
+        if (curr === "main") {
+            this.isEx = true;
+        }
+        
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
     }
 }
