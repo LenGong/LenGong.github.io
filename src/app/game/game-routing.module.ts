@@ -7,7 +7,7 @@ import { ShipComponent } from './rock/ship.component'
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: GameComponent },
+        { path: 'game', component: GameComponent },
         { path: 'ship', component: ShipComponent }
     ])
     ],

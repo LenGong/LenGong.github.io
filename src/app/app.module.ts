@@ -19,8 +19,8 @@ import { MainModule } from './main';
 import { DocmentModule } from './docment';
 import { ResumeModule } from './resume';
 import { NoteModule } from './note';
+import { GameModule } from './game';
 //按需加载的模块
-//import { GameModule } from './game';
 //import { PictureModule } from './picture';
 
 @NgModule({
@@ -32,8 +32,8 @@ import { NoteModule } from './note';
     MainModule,
     DocmentModule,
     NoteModule,
-    ResumeModule
-    //GameModule,
+    ResumeModule,
+    GameModule,
     //PictureModule,
   ],
   declarations: [AppComponent, HeaderComponent, FooterComponent],
