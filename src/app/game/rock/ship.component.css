@@ -2,7 +2,7 @@ div.out{
   width: 100%;
   padding: 20px;
   margin-top: -40px;
-  background: url("/public/imgsou/img/back2.png");
+  background: url(/public/images/back2.png);
 }
 div.in{
   width: 1000px;

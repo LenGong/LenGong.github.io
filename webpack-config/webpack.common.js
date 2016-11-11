@@ -15,7 +15,7 @@ module.exports = {
             test: /\.(html|htm)$/,
             loader: 'html',
         }, {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|mp3)$/,
             loader: 'file?name=images/[name].[hash].[ext]'
         }, {
         }, {
@@ -28,7 +28,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             include: helpers.root('src', 'app'),
-            loader: 'raw'
+            loader:  'raw-loader'
         }]
     },
 
