@@ -14,12 +14,14 @@
     "files": [
       "./src/main.ts",
       "./src/polyfills.ts",
-      "./src/vendor.ts"
+      "./src/vendor.ts",
+      "./src/app/game/game.module.ts",
+      "./src/app/picture/picture.module.ts"
     ],
 
     "exclude": [
         "node_modules"
     ],
-    
+
     "compileOnSave": false
 }
