@@ -1,4 +1,0 @@
-<ifModule mod_rewrite.c>
-	RewriteEngine on
- 	 RewriteRule ^(.*)$ index.html
-</ifModule>
