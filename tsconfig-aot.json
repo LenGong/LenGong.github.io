@@ -8,6 +8,8 @@
         "experimentalDecorators": true,
         "removeComments": true,
         "noImplicitAny": true,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./aot",
         "rootDir": "./src",

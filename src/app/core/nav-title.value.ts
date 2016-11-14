@@ -1,4 +1,3 @@
-
 const logo:string = '/public/images/logo.png'
 
 export interface Btitle {

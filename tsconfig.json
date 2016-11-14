@@ -1,4 +1,6 @@
 {
+    "compileOnSave": false,
+
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -8,20 +10,30 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": true,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
         "suppressImplicitAnyIndexErrors": true
     },
 
     "files": [
-      "./src/main.ts",
-      "./src/polyfills.ts",
-      "./src/vendor.ts",
-      "./src/app/game/game.module.ts",
-      "./src/app/picture/picture.module.ts"
+        "./src/main.ts",
+        "./src/polyfills.ts",
+        "./src/vendor.ts",
+        "./src/app/game/game.module.ts",
+        "./src/app/picture/picture.module.ts"
     ],
 
     "exclude": [
+        "dist",
+        "dest",
+        "aot",
+        "public",
+        "webpack-config",
+        "!./node_modules/**/*.ts",
         "node_modules"
     ],
 
-    "compileOnSave": false
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

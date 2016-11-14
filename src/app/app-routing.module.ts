@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { FooterComponent } from './shared';
 
 @NgModule({
     imports: [RouterModule.forRoot([
