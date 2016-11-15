@@ -1,31 +1,36 @@
-div.out{
-  width: 100%;
-  padding: 20px;
+div.bgimg{
+  width: auto;
   margin-top: -40px;
-  background: url(/public/images/back2.png);
+  padding-top: 40px;
+  background: url(/public/images/back2.png) ;
 }
-div.in{
-  width: 1000px;
-  margin: 14px auto;
-  padding: 10px 10px 30px;
-  background: #CCC;
+
+div {
+    width: 1000px;
+    margin: 14px auto;
+    padding: 10px 10px 30px;
+    background: #CCC;
 }
-#myCanvas{
-  border: 2px solid royalblue;
-  box-shadow: 2px 4px 2px #444;
+
+#myCanvas {
+    border: 2px solid royalblue;
+    box-shadow: 2px 4px 2px #444;
 }
-h2{
-  margin: 8px 260px;
-  font-size: 24px;
-  color: blue;
+
+h2 {
+    margin: 8px 260px;
+    font-size: 24px;
+    color: blue;
 }
-h4{
-  width: 160px;
-  float: right;
-  font-family: "宋体";
-  font-size: 14px;
-  line-height: 22px;
+
+h4 {
+    width: 170px;
+    float: right;
+    font-family: "宋体";
+    font-size: 14px;
+    line-height: 22px;
 }
+
 span {
-  color: green;
+    color: green;
 }
