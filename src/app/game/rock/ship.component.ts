@@ -7,6 +7,7 @@ import {
     draw,
     keyup,
     keydown,
+    init_flag,
     stop
 } from './js/shiprock';
 
@@ -24,12 +25,11 @@ export class ShipComponent implements OnInit, OnDestroy {
         this.getCanvas()
     }
 
-    ngOnDestroy(){
-      stop();
+    ngOnDestroy() {
+        stop();
     }
 
     getCanvas() {
-
         // 构建一个游戏平台对象
         let myCanvas = this.renderer.selectRootElement('canvas');
         let frame = simpleGui.createFrame(myCanvas);
@@ -47,10 +47,12 @@ export class ShipComponent implements OnInit, OnDestroy {
         frame.setKeyupHandle(keyup);
         frame.setKeydownHandle(keydown);
         frame.setDrawHandle(draw);
-
-        // 开始画布循不和石头产生器
-        timer.start();
-        frame.start();
+        
+        if (init_flag) {
+            // 开始画布循不和石头产生器
+            timer.start();
+            frame.start();
+        }
     }
 
 

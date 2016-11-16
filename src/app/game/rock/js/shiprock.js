@@ -199,11 +199,11 @@ function Ship(pos, vel, angle, image, info) {
         }
 
         Ship.prototype.increment_angle_vel = function() {
-            this.angle_vel += 0.05;
+            this.angle_vel += 0.1;
         }
 
         Ship.prototype.decrement_angle_vel = function() {
-            this.angle_vel -= 0.05;
+            this.angle_vel -= 0.1;
         }
 
         Ship.prototype.shoot = function() {
@@ -390,8 +390,10 @@ export function rock_spawner() {
     }
 }
 
+export var init_flag = true;
 export function stop(){
   lives = 0;
+  init_flag = false;
 }
 
 var rock_group = [];
