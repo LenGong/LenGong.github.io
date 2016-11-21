@@ -12,26 +12,39 @@
         "noImplicitAny": true,
         "noEmitHelpers": false,
         "noEmitOnError": true,
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "types": [
+            "core-js",
+            "node",
+            "jasmine"
+        ]
     },
+
+    "include": [
+      "src/*",
+      "src/**/*"
+    ],
+
+    "exclude": [
+        "./dist",
+        "./dest",
+        "./aot",
+        "./webpack-config",
+        "./src/main.aot.ts",
+        "!./node_modules/**/*.d.ts",
+        "node_modules",
+        "**/*.spec.ts"
+    ],
 
     "files": [
         "./src/main.ts",
         "./src/polyfills.ts",
         "./src/vendor.ts",
-        "./src/app/game/game.module.ts",
         "./src/app/picture/picture.module.ts"
-    ],
-
-    "exclude": [
-        "dist",
-        "dest",
-        "aot",
-        "public",
-        "webpack-config",
-        "!./node_modules/**/*.ts",
-        "node_modules"
-    ],
+      ],
 
     "atom": {
         "rewriteTsconfig": true

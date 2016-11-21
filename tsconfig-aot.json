@@ -22,15 +22,10 @@
 
     "files": [
         "./src/main.ts",
-        "./src/app/game/game.module.ts",
-        "./src/app/picture/picture.module.ts",
         "./src/polyfills.ts",
-        "./src/vendor.ts"
-    ],
-
-    "exclude": [
-        "node_modules"
-    ],
+        "./src/vendor.ts",
+        "./src/app/picture/picture.module.ts"
+      ],
 
     "angularCompilerOptions": {
         "genDir": "./aot/ng",
