@@ -3,12 +3,12 @@
         "target": "es5",
         "module": "es2015",
         "moduleResolution": "node",
-        "sourceMap": true,
+        "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": true,
         "noImplicitAny": true,
-        "noEmitHelpers": true,
+        "noEmitHelpers": false,
         "noEmitOnError": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./aot",
@@ -18,15 +18,15 @@
         ],
         "types": [
             "core-js",
-            "node",
+            "node"
         ]
     },
 
     "files": [
-        "src/main.ts",
-        "src/polyfills.ts",
-        "src/vendor.ts",
-        "src/app/picture/picture.module.ts"
+        "./src/main.ts",
+        "./src/polyfills.ts",
+        "./src/vendor.ts",
+        "./src/app/picture/picture.module.ts"
       ],
 
     "angularCompilerOptions": {

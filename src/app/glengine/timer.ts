@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+//TODO:需要注入加
+//import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 
-@Injectable()
+//TODO:需要注入加
+//@Injectable()
 export class Timer {
     /**
      * 一个elf对象数组
