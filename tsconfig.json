@@ -23,11 +23,6 @@
         ]
     },
 
-    "include": [
-      "src/*",
-      "src/**/*"
-    ],
-
     "exclude": [
         "./dist",
         "./dest",

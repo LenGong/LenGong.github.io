@@ -13,7 +13,7 @@ export const BTITLE: Btitle = {
         { title: '文档',  patch:'docment', imgFont: 'glyphicon glyphicon-book' },
         { title: '博记',   patch:'note', imgFont: 'glyphicon glyphicon-pencil' },
         { title: '游戏',  patch:'game', imgFont: 'glyphicon glyphicon-king' },
-        { title: '相册',  patch:'picture', imgFont: 'glyphicon glyphicon-picture' },
+        { title: '图片',  patch:'picture', imgFont: 'glyphicon glyphicon-picture' },
         { title: '个人历',  patch:'resume', imgFont: 'glyphicon glyphicon-user' }
     ],
     footer:{

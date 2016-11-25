@@ -1,17 +1,22 @@
 <div class="container">
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-success">图片</span>部份模块的地方---占位</h2>
+    <div *ngIf="flag">
+      <p>{{loadSate}}</p>
+      <div  class="progress text-left">
+        <div class="progress-bar progress-bar-warning progress-bar-striped active" [style.width] = "mwidth" >
+        </div>
+        &nbsp;{{mwidth}}
+      </div>
+    </div>
+    <div *ngIf="!flag && !fl" class="row">
+      <div *ngFor="let im of images" class="col-sm-3">
+        <a (click)="onclick(im.src)"  class="thumbnail cors" >
+          <img class="img-responsive sm" [src]="im.src" />
+        </a>
+      </div>
+    </div>
+    <div *ngIf="fl"  [style.marginTop]="margin">
+      <a (click)="onclick()" class="thumbnail shaw" >
+        <img class="img-responsive lg" [src]="img"  [style.height]="height" />
+      </a>
+    </div>
 </div>

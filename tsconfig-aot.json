@@ -8,23 +8,25 @@
         "experimentalDecorators": true,
         "removeComments": true,
         "noImplicitAny": true,
-        "noEmitHelpers": false,
+        "noEmitHelpers": true,
         "noEmitOnError": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./aot",
         "rootDir": "./src",
-        "typeRoots": ["./node_modules/@types"],
+        "typeRoots": [
+          "./node_modules/@types"
+        ],
         "types": [
             "core-js",
-            "node"
+            "node",
         ]
     },
 
     "files": [
-        "./src/main.ts",
-        "./src/polyfills.ts",
-        "./src/vendor.ts",
-        "./src/app/picture/picture.module.ts"
+        "src/main.ts",
+        "src/polyfills.ts",
+        "src/vendor.ts",
+        "src/app/picture/picture.module.ts"
       ],
 
     "angularCompilerOptions": {

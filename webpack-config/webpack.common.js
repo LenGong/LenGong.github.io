@@ -13,10 +13,10 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.(html|htm)$/,
-            loader: 'html',
+            loader: 'html-loader',
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|mp3)$/,
-            loader: 'file?name=images/[name].[hash].[ext]'
+            loader: 'file-loader?name=images/[name].[hash].[ext]'
         }, {
         }, {
             test: /\.css$/,

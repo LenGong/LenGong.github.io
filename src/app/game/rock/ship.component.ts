@@ -22,7 +22,7 @@ export class ShipComponent implements OnInit, OnDestroy {
     constructor(private renderer: Renderer) { }
 
     ngOnInit() {
-        this.getCanvas()
+        this.getCanvas();
     }
 
     ngOnDestroy() {
@@ -36,7 +36,7 @@ export class ShipComponent implements OnInit, OnDestroy {
 
         // 设置游戏画布颜色和图片前景。
         let color = 'rgba(245,200,21,0.3)';
-        let img = 'url(' + require('./res/img/nebula_blue.f2014.png') + ')';
+        let img = 'url(' + require('./res/img/nebula_bluef.png') + ')';
         frame.setCanvasBackground(color, img);
 
         // 设多久产生一个rock_spawner
@@ -47,13 +47,11 @@ export class ShipComponent implements OnInit, OnDestroy {
         frame.setKeyupHandle(keyup);
         frame.setKeydownHandle(keydown);
         frame.setDrawHandle(draw);
-        
+
         if (init_flag) {
             // 开始画布循不和石头产生器
             timer.start();
             frame.start();
         }
     }
-
-
 }
