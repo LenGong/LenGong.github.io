@@ -78,7 +78,7 @@ export class PictureComponent implements OnInit {
       }
       else if(x === 27){
         this.loadSate = "加载成功!"
-        setTimeout(()=>{this.flag = false;}, 500)
+        setTimeout(()=>{this.flag = false;}, 1000)
       }
     })
   }
