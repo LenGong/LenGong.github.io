@@ -5,8 +5,7 @@ import { FooterComponent } from './shared';
 @NgModule({
     imports: [RouterModule.forRoot([
         { path: '', redirectTo: 'main', pathMatch:'full' },
-        // { path: 'game', loadChildren: "es6-promise!./game/game.module#GameModule" },
-        { path: 'picture', loadChildren: "es6-promise-loader!./picture/picture.module#PictureModule" },
+        { path: 'resume', loadChildren: "es6-promise-loader!./resume/resume.module#ResumeModule" },
     ])
     ],
     exports: [RouterModule]

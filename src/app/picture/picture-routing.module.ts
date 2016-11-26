@@ -5,7 +5,7 @@ import { PictureComponent } from './picture.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: PictureComponent },
+        { path: 'picture', component: PictureComponent },
     ])
     ],
     exports: [RouterModule]

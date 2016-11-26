@@ -5,7 +5,7 @@ import { ResumeComponent } from './resume.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: 'resume', component: ResumeComponent },
+        { path: '', component: ResumeComponent },
     ])
     ],
     exports: [RouterModule]

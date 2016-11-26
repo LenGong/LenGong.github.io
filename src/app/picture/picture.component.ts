@@ -59,7 +59,6 @@ export class PictureComponent implements OnInit {
       c14: require('./feiji/c14.jpg'),
       c15: require('./feiji/c15.jpg'),
       c16: require('./feiji/c16.jpg'),
-      c17: require('./feiji/c17.jpg'),
       c18: require('./feiji/c18.jpg'),
       c19: require('./feiji/c19.jpg'),
       c20: require('./feiji/c20.jpg'),
@@ -73,11 +72,14 @@ export class PictureComponent implements OnInit {
       c28: require('./feiji/c28.jpg'),
     };
     this.loadres.loadImages(imgs, (x) => {
-      this.mwidth = Math.trunc(x / 28 * 100) + '%';
+      this.mwidth = Math.trunc(x / 27 * 100) + '%';
       if(!x){
         this.loadSate = "加载失败!";
       }
-      else if(x === 28){this.flag = false; this.loadSate = "加载成功！"}
+      else if(x === 27){
+        this.loadSate = "加载成功!"
+        setTimeout(()=>{this.flag = false;}, 500)
+      }
     })
   }
   //读取图片到数组

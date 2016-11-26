@@ -38,7 +38,7 @@
         "./src/main.ts",
         "./src/polyfills.ts",
         "./src/vendor.ts",
-        "./src/app/picture/picture.module.ts"
+        "./src/app/resume/resume.module.ts"
       ],
 
     "atom": {

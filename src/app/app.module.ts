@@ -17,11 +17,11 @@ import { SharedModule, HeaderComponent, FooterComponent } from './shared';
 //特性模块
 import { MainModule } from './main';
 import { DocmentModule } from './docment';
-import { ResumeModule } from './resume';
 import { NoteModule } from './note';
 import { GameModule } from './game';
+import { PictureModule } from './picture';
 //按需加载的模块
-//import { PictureModule } from './picture';
+//import { ResumeModule } from './resume';
 
 @NgModule({
   imports: [
@@ -32,9 +32,9 @@ import { GameModule } from './game';
     MainModule,
     DocmentModule,
     NoteModule,
-    ResumeModule,
     GameModule,
-    //PictureModule,
+    PictureModule,
+  //  ResumeModule,
   ],
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   bootstrap: [AppComponent]
