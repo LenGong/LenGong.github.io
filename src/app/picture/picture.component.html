@@ -7,15 +7,15 @@
         </div>
       </div>
     </div>
-    <div *ngIf="!flag && !fl" class="row">
+    <div *ngIf="!flag && !fll" class="row">
       <div *ngFor="let im of images" class="col-sm-3">
         <a (click)="onclick(im.src)"  class="thumbnail cors" >
           <img class="img-responsive sm" [src]="im.src" />
         </a>
       </div>
     </div>
-    <div *ngIf="fl"  [style.marginTop]="margin">
-      <a (click)="onclick()" class="thumbnail shaw" >
+    <div *ngIf="fl"  [style.marginTop]="margin" [@imgState]="" (@imgState.done)="late()">
+      <a class="thumbnail shaw" (click)="onclick()">
         <img class="img-responsive lg" [src]="img"  [style.height]="height" />
       </a>
     </div>

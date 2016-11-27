@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,
+         OnInit,
+         Input,
+         trigger,
+         style,
+         transition,
+         animate,
+         keyframes
+ } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LoadRes } from '../glengine';
@@ -19,15 +27,35 @@ declare let require:any;
     }
     .shaw{
       padding:0;
-      box-shadow: 6px 6px 4px #AAA;
+      box-shadow: 6px 6px 4px #888;
     }
   `],
+  animations: [
+    trigger('imgState',[
+      transition('void => *', [
+        style({transform:'scale(1.5)'}),
+        animate('3s', keyframes([
+          style({transform: 'scale(0)', offset:0.1}),
+          style({transform: 'scale(0.2)', offset:0.2}),
+          style({transform: 'scale(0)', offset:0.8}),
+          style({transform: 'scale(1)', offset:1}),
+        ]))
+      ]),
+      transition('* => void',[
+        animate(
+          '3s ease-in',
+          style({transform: 'matrix(0.1, 0.2, 0.3, -0.1, 0, 0)'})
+        )
+      ])
+    ])
+  ],
   providers: [LoadRes]
 })
 export class PictureComponent implements OnInit {
   mwidth: string = '1%';
   flag: boolean = true;
   fl:boolean = false;
+  fll:boolean = false;
   images:Array<string> = [];
   img: any;
   height: string;
@@ -94,15 +122,20 @@ export class PictureComponent implements OnInit {
   }
   //放大图
   onclick(img?:any){
-    let num = document.documentElement.scrollTop || document.body.scrollTop;
-    this.margin = num + 'px';
-    this.fl = !this.fl;
     if(img){
+      let num = document.documentElement.scrollTop || document.body.scrollTop;
+      this.margin = num + 'px';
+      this.fll = !this.fll;
       document.body.style.overflow = 'hidden';
       this.img = img;
       this.height = (window.innerHeight * 0.8) + 'px';
     }
-    else{
+    this.fl = !this.fl;
+  }
+  //动画回调
+  late(){
+    if(!this.fl){
+      this.fll = !this.fll;
       document.body.style.overflow = 'visible';
     }
   }
