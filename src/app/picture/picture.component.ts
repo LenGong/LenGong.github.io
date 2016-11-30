@@ -101,7 +101,6 @@ export class PictureComponent implements OnInit {
   //读取图片到数组
   readImgs() {
     let ims = this.loadres.getImages();
-    console.log(ims);
     let i = 0;
     for (let key in imgfile) {
       let obj = {
