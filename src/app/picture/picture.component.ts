@@ -1,17 +1,21 @@
-import { Component,
-         OnInit,
-         Input,
-         trigger,
-         style,
-         transition,
-         animate,
-         keyframes
- } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  trigger,
+  style,
+  transition,
+  animate,
+  keyframes
+} from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 import { LoadRes } from '../glengine';
 
-declare let require:any;
+import { imgfile } from './feiji/imagesinfo';
+
+declare let require: any;
+
 
 @Component({
   templateUrl: './picture.component.html',
@@ -31,111 +35,106 @@ declare let require:any;
     }
   `],
   animations: [
-    trigger('imgState',[
-      transition('void => *', [
-        style({transform:'scale(1.5)'}),
-        animate('3s', keyframes([
-          style({transform: 'scale(0)', offset:0.1}),
-          style({transform: 'scale(0.2)', offset:0.2}),
-          style({transform: 'scale(0)', offset:0.8}),
-          style({transform: 'scale(1)', offset:1}),
-        ]))
-      ]),
-      transition('* => void',[
-        animate(
-          '3s ease-in',
-          style({transform: 'matrix(0.1, 0.2, 0.3, -0.1, 0, 0)'})
-        )
-      ])
-    ])
+    trigger('imgState',
+      [
+        transition(':enter', [
+          style({ transform: 'scale(1.5)' }),
+          animate('3s', keyframes([
+            style({ transform: 'scale(0)', offset: 0.1 }),
+            style({ transform: 'scale(0.2)', offset: 0.2 }),
+            style({ transform: 'scale(0)', offset: 0.8 }),
+            style({ transform: 'scale(1)', offset: 1 }),
+          ]))
+        ]),
+        transition(':leave', [
+          animate(
+            '3s ease-in',
+            style({ transform: 'matrix(0.1, 0.2, 0.3, -0.1, 0, 0)' })
+          )
+        ])
+      ]
+    )
   ],
   providers: [LoadRes]
 })
 export class PictureComponent implements OnInit {
+
   mwidth: string = '1%';
-  flag: boolean = true;
-  fl:boolean = false;
-  fll:boolean = false;
-  images:Array<string> = [];
+  loadflag: boolean = true;
+
+  fils: boolean = true;
+  fil: boolean = false;
+  stat: boolean = false;
+
+  images:Array<Object> = [];
   img: any;
   height: string;
   margin: string;
   loadSate: string = "图片加载中...";
 
-  constructor(private loadres: LoadRes){}
+  constructor(private loadres: LoadRes) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.initImg();
     this.readImgs();
   }
   //装载图片
-  initImg(){
-    let imgs = {
-      c1: require('./feiji/c1.jpg'),
-      c2: require('./feiji/c2.jpg'),
-      c3: require('./feiji/c3.jpg'),
-      c4: require('./feiji/c4.jpg'),
-      c5: require('./feiji/c5.jpg'),
-      c6: require('./feiji/c6.jpg'),
-      c7: require('./feiji/c7.jpg'),
-      c8: require('./feiji/c8.jpg'),
-      c9: require('./feiji/c9.jpg'),
-      c10: require('./feiji/c10.jpg'),
-      c11: require('./feiji/c11.jpg'),
-      c12: require('./feiji/c12.jpg'),
-      c13: require('./feiji/c13.jpg'),
-      c14: require('./feiji/c14.jpg'),
-      c15: require('./feiji/c15.jpg'),
-      c16: require('./feiji/c16.jpg'),
-      c18: require('./feiji/c18.jpg'),
-      c19: require('./feiji/c19.jpg'),
-      c20: require('./feiji/c20.jpg'),
-      c21: require('./feiji/c21.jpg'),
-      c22: require('./feiji/c22.jpg'),
-      c23: require('./feiji/c23.jpg'),
-      c24: require('./feiji/c24.jpg'),
-      c25: require('./feiji/c25.jpg'),
-      c26: require('./feiji/c26.jpg'),
-      c27: require('./feiji/c27.jpg'),
-      c28: require('./feiji/c28.jpg'),
-    };
+  initImg() {
+    let imgs = {};
+    imgfile.forEach(e => {
+      let path = ('./feiji' + e.path).replace(/\.jpg$/, '');
+      imgs[e.id] = require(path+'.jpg')});
+
+    let leng = imgfile.length;
+
     this.loadres.loadImages(imgs, (x) => {
-      this.mwidth = Math.trunc(x / 27 * 100) + '%';
-      if(!x){
+      this.mwidth = Math.trunc(x / leng * 100) + '%';
+      if (!x) {
         this.loadSate = "加载失败!";
       }
-      else if(x === 27){
+      else if (x === leng) {
         this.loadSate = "加载成功!"
-        setTimeout(()=>{this.flag = false;}, 1000)
+        setTimeout(() => { this.loadflag = false; }, 1000)
       }
     })
   }
   //读取图片到数组
-  readImgs(){
+  readImgs() {
     let ims = this.loadres.getImages();
+    console.log(ims);
     let i = 0;
-    for(let key in ims){
-      if(key != 'state'){
-        this.images[i++] = ims[key];
+    for (let key in imgfile) {
+      let obj = {
+        id: imgfile[key].id,
+        title: imgfile[key].title,
+        describe: imgfile[key].describe,
+        path: ims[imgfile[key].id].src
       }
+      this.images[i] = obj;
+      i++;
     }
   }
   //放大图
-  onclick(img?:any){
-    if(img){
+  onclick(img?: any) {
+    if (!this.stat && img) {
       let num = document.documentElement.scrollTop || document.body.scrollTop;
       this.margin = num + 'px';
-      this.fll = !this.fll;
       document.body.style.overflow = 'hidden';
       this.img = img;
-      this.height = (window.innerHeight * 0.8) + 'px';
+      this.height = (window.innerHeight * 0.7) + 'px';
+
+      this.fils = false;
+      this.fil = true;
     }
-    this.fl = !this.fl;
+    else if (this.stat) {
+      this.fil = false;
+    }
   }
   //动画回调
-  late(){
-    if(!this.fl){
-      this.fll = !this.fll;
+  late() {
+    this.stat = !this.stat;
+    if (!this.fil) {
+      this.fils = true;
       document.body.style.overflow = 'visible';
     }
   }

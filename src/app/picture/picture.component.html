@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf="flag">
+    <div *ngIf="loadflag">
       <p>{{loadSate}}</p>
       <div  class="progress">
         <div class="progress-bar progress-bar-warning progress-bar-striped active" [style.width] = "mwidth" >
@@ -7,16 +7,18 @@
         </div>
       </div>
     </div>
-    <div *ngIf="!flag && !fll" class="row">
+    <div *ngIf="!loadflag && fils" class="row" >
       <div *ngFor="let im of images" class="col-sm-3">
-        <a (click)="onclick(im.src)"  class="thumbnail cors" >
-          <img class="img-responsive sm" [src]="im.src" />
+        <h5 class="text-center">{{im.title}}</h5>
+        <a (click)="onclick(im)"  class="thumbnail cors" >
+          <img class="img-responsive sm" [src]="im.path" />
         </a>
       </div>
     </div>
-    <div *ngIf="fl"  [style.marginTop]="margin" [@imgState]="" (@imgState.done)="late()">
+    <div *ngIf="fil" [style.marginTop]="margin" [@imgState]="" (@imgState.done)="late()" >
       <a class="thumbnail shaw" (click)="onclick()">
-        <img class="img-responsive lg" [src]="img"  [style.height]="height" />
+        <img class="img-responsive lg" [src]="img.path"  [style.height]="height" />
       </a>
+      <p class="text-right text-info">{{img.describe}}</p>
     </div>
 </div>
