@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Frame, LoadRes } from '../../glengine';
+import { Main } from './demons/main';
 
 @Component({
   template: '<ship-rock></ship-rock>',
-  providers: [Frame, LoadRes]
+  providers: [Main]
 })
 export class ShipRootComponent {}

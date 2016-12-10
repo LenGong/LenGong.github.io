@@ -32,9 +32,11 @@ export class LoadRes {
     }
   }
   //加载声音
-  loadSounds(sounds: any) {
-    for (let sound in sounds) {
-      this.sounds.sound = sounds.sound;
+  loadSounds(urls: any) {
+    for (const key in urls) {
+      let sound = new Audio();
+      sound.src = urls[key];
+      this.sounds[key] = sound;
     }
   }
   //得到图片组对象

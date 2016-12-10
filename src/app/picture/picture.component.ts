@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 import { LoadRes } from '../glengine';
 
-import { imgfile } from './feiji/imagesinfo';
+import { imgfile } from './feiji/images-info';
 
 declare let require: any;
 
