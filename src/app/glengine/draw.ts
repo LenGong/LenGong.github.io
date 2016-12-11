@@ -10,6 +10,11 @@ export class Draw {
         this.glCanvas = glCanvas;
     }
 
+    drawRect(pos: Array<number>, hw:Array<number>, color:string){
+         this.glCanvas.strokeStyle = color;
+         this.glCanvas.strokeRect(pos[0], pos[1], hw[0], hw[1]);
+    }
+
     drawText(text:string, pos:Array<number>, size:number, color:string) {
         this.glCanvas.font = size + "px 宋体";
         this.glCanvas.fillStyle = color;

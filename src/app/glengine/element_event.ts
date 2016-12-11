@@ -10,7 +10,7 @@ export class ElementEvent {
     keydown(element: any) {
        return  Observable.fromEvent(element, 'keydown')
        .map(event =>{
-           if (event['keyCode'] == 32 || event['keyCode'] == 37 || event['keyCode'] == 38 || event['keyCode'] == 39 || event['keyCode'] == 40) {event['preventDefault']();}
+           if (event['keyCode'] != 123 ) {event['preventDefault']();}
            return  event['keyCode'];
         });
     }
@@ -18,7 +18,7 @@ export class ElementEvent {
     keyup(element: any) {
        return  Observable.fromEvent(element, 'keyup')
        .map(event => {
-           if (event['keyCode'] == 32 || event['keyCode'] == 37 || event['keyCode'] == 38 || event['keyCode'] == 39 || event['keyCode'] == 40) {event['preventDefault']();}
+           if (event['keyCode'] != 123 ) {event['preventDefault']();}
            return event['keyCode'];
         });
     }

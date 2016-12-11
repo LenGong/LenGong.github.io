@@ -5,8 +5,7 @@ export interface KeyMap{
     right: number;
     down: number;
     space: number;
-    [index: string]: number;
-
+    F11: number;
 }
 
 //键值映射
@@ -17,4 +16,5 @@ export const KEY_MAP: KeyMap = {
     right: 39,
     down: 40,
     space: 32,
+    F11: 122
 }

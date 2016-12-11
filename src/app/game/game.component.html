@@ -1,14 +1,28 @@
 <div class="container">
-  <h4 style="text-indent:2em; line-height: 1.6;">
-    这个游戏写得早，源码已掉，只有一个压缩了代码，本想修改下适应手机端，但压缩代码实在不好修改，有一些bug也一时改不了，就是键在左右同时按，有时一直转圈。不过实在也不好玩，只是一个练习题。放在这里只是为了练习Angular2，现在是我不知道如何进入组件，用ngOnInit去初始化。这游戏是全局，所以不管到哪个组件，游戏都不消亡，你听得到声音。再此进入是接的上次的。如果你有兴趣玩一玩，请点击下面链接进入。
-    <h4 class="text-right">2016年11月10日</h4>
-  </h4>
+  <h3 class="text-center">飞船打空石</h3>
+  <p style="text-indent:2em; font-size:16px; line-height: 2;">
+    这是一个利用Angular2框架练习开发的小游戏，本想自适应电脑端和手机端，手机端游览器框架太多，又太奇特，目前只能适应Chrome, Firefox, Edge，并效果很差，Chrome缩放计算方式与Firefox和Edge算法不同。所以电脑端进入游戏之前最好把游览器缩放大小恢复到100%，不然Chrome会超出电脑屏大小，另外两个游览器不会，只是按中心缩放。写得比较初略，手机端速度没调好，快得连子弹都看不见了并没优化，实难控制。手机端横屏进入是横屏状态，竖屏进入是竖屏状态，没有去监听屏幕状态。看来手机端游戏还得利用Ionic2邦定游览框架进行单独开发，所以这个不想再练习修改了，电脑端基本能操作。同鞋们不要见笑哈！
+  </p>
+  <p style="text-indent:2em; font-size:16px; line-height: 2;">
+  游戏操作说明：电脑端空格键发子弹，方向键控制左右转和前进。手机端进入后打开屏幕键操作。源码在<a href="https://github.com/LenGong/LenGong.github.io">这里</a>的src/app/game中，如果你有兴趣的话可以和我一起学习研究Angular2和Ionic2。
+  </p>
   <hr />
-  <h4 style="text-indent:2em; line-height: 1.6;">
-    今天在机子里找到源码了，实在没有多少心情弄，原来的码一片乱，接口实在有点不清楚。大概改了下弄进angular2组件里了，终于有点明白怎样写声明了。如果大家对写游戏有兴趣，我有空可以用ts重构游戏引挚部份，并且去自适应手机端，这样就可以写很多游戏了。不过这个只能用来写2D游戏。现在重新进入组件会初始化了游戏了，修正了按键有时转圈，根据有人要求空格键不再按一下发一颗子弹，免得手累。
-    <h4 class="text-right">2016年11月15日</h4>
-  </h4>
-  <hr />
-  <h3 class="text-danger">进去后加载可能有点慢(github上)，请不要刷页面，一刷就重新进主页面了。出现开始菜单就加载完了。</h3>
-  <button class="btn btn-warning btn-block" [routerLink]="['../ship_rock']">飞船打太空石</button>
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 imghbig">
+      <img src="/public/images/game1.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-8 col-sm-5 imgbig">
+      <img src="/public/images/game2.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-8 col-sm-4 imgbig">
+      <img src="/public/images/game3.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-6 col-sm-5 imgbig">
+      <img src="/public/images/game4.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-6 col-sm-4 imgbig">
+      <img src="/public/images/game5.png" class="img-responsive img-rounded" >
+    </div>
+  </div>
+   <button class="btn btn-warning btn-block" [routerLink]="['../ship_rock']">飞船打太空石</button>
 </div>
