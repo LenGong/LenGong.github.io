@@ -28,7 +28,6 @@ export class Sprite {
         }
     }
 
-
     draw(canvas:any) {
         canvas.drawImage(this.image, this.image_center, this.image_size,
             this.pos, this.image_size, this.angle);
@@ -37,7 +36,6 @@ export class Sprite {
     update(width:number, height:number) {
         //update angle
         this.angle += this.angle_vel;
-
         //update position
         this.pos[0] = (this.pos[0] + this.vel[0]) % width;
         this.pos[1] = (this.pos[1] + this.vel[1]) % height;
@@ -51,7 +49,6 @@ export class Sprite {
         }
 
         this.age += 1;
-
         if (this.age == this.lifespan) {
             if (this.animated) {
                 this.image_center[0] %= this.age * this.image_size[0];
@@ -70,7 +67,6 @@ export class Sprite {
             return false;
         }
     }
-
 
     private dist(p: Array<number>, q: Array<number>) {
         return Math.sqrt((p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1]));

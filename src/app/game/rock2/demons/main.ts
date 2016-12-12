@@ -1,9 +1,9 @@
 import { Injectable, Inject, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
-
+//导入glengine部份
 import { Frame, LoadRes, KeyMapCofig, KeyMap, Timer, Draw, ElementEvent } from '../../../glengine';
+//导入资源及Ship and Sprite 类
 import { images, sounds } from '../res/res';
-
 import { Ship } from './ship';
 import { Sprite } from './Sprite';
 
@@ -26,16 +26,16 @@ export class Main {
     private lives = 3;
     private score = 0;
     private flag = false;
+    private loadFlag = false;
     //收集组
     private rock_group: any = [];
     private missile_group: any = [];
     private explosion_group: any = [];
-
-    public loadFlag = false;
-
     //屏键部份
     private keyInter = false;
     private keyWord = "开";
+    private sleft = false;
+    private sright = false;
 
     constructor(private router: Router, private renderer: Renderer, private frame: Frame, private loadRes: LoadRes, private elm: ElementEvent, private mdraw: Draw, private timer: Timer, @Inject(KeyMapCofig) private keymap: KeyMap) { }
 
@@ -48,29 +48,21 @@ export class Main {
             this.lwidth = Math.trunc(x / 7 * 100) + '%';
             if (x === 7) { this.loadFlag = true; }
         });
-
         //获得图片、声音对象
         this.images = this.loadRes.getImages();
         this.imagesInfo = images[1];
         this.sounds = this.loadRes.getSounds();
-
         //构建一个画布
         this.launchFullscreen(this.renderer.selectRootElement('ship-rock'));
         this.width = screen.width;
         this.height = screen.height;
-
         this.frame.creatCanvas(this.renderer, 'ship-rock', this.width + '', this.height + '', "#AAA", this.images.nebulaBluef.src);
         //构建飞船
         this.my_ship = new Ship([this.width / 2, this.height / 2], [0, 0], 3.14, this.images.doubleShip, this.imagesInfo.doubleShip, this.sounds.thrust);
-
         //不定时产生太空石
         let subscript0 = this.timer.start(1000 - this.init_ship * 20, this.rock_spawner).subscribe(() => { this.rock_spawner() });
-
-
         //设置事件
         let subscrip1 = this.allEvent();
-
-
         //画循环
         this.frame.draw = () => { this.draw(this.mdraw) };
         //开始
@@ -83,8 +75,7 @@ export class Main {
         this.sounds.soundtrack.pause();
     }
 
-
-    //key handlers to control ship
+    //事件集
     private allEvent() {
         let subKeydown = this.elm.keydown(document)
             .subscribe((e) => {
@@ -106,6 +97,7 @@ export class Main {
                         break;
                     case this.keymap['space']:
                         this.my_ship.shoot((missile_pos: Array<number>, missile_vel: Array<number>, angle: number) => {
+                            missile_vel = [missile_vel[0] * this.width / 1600, missile_vel[1] * this.width / 1600];
                             if (this.missile_group.length < 3) {
                                 var a_missile = new Sprite(missile_pos, missile_vel, angle, 0, this.images.shot2, this.imagesInfo.shot2, this.sounds.missile);
                                 this.missile_group.push(a_missile);
@@ -118,7 +110,6 @@ export class Main {
                     case this.keymap['F11']:
                         this.router.navigate(['../game']);
                         break;
-
                 }
             });
 
@@ -160,9 +151,8 @@ export class Main {
                 this.shipstop(pos);
                 this.shipshoot(pos);
             });
-
+        
         return [subKeydown, subKeyup, subClick];
-
     }
 
     private draw(canvas: any) {
@@ -259,7 +249,6 @@ export class Main {
 
                 canvas.drawRect([this.width / 2 + 20, this.height / 2 + 80], [60, 30], 'red');
                 canvas.drawText("退出", [this.width / 2 + 27, this.height / 2 + 102], 22, "yellow");
-
             }
         }
     }
@@ -294,7 +283,7 @@ export class Main {
         }
     }
 
-    //timer handler that spawns a rock
+    //spawns a rock
     private rock_spawner(): any {
         if ((this.rock_group.length < this.init_ship) && this.started) {
             let rock_pos = [Math.random() * this.width, Math.random() * this.height];
@@ -306,8 +295,7 @@ export class Main {
             this.rock_group.push(new Sprite(rock_pos, rock_vel, 0, rock_avel, this.images.asteroidBlue, this.imagesInfo.asteroidBlue));
         }
     }
-
-
+    //全屏
     private launchFullscreen(element: any) {
         if (element.requestFullscreen) {
             element.requestFullscreen();
@@ -319,7 +307,7 @@ export class Main {
             element.msRequestFullscreen();
         }
     }
-
+    //游戏开始菜单部份
     private splash(pos: Array<number>) {
         let ww = pos[0] - (this.width / 2 - 80);
         let hh = pos[1] - (this.height / 2 + 80);
@@ -351,13 +339,26 @@ export class Main {
             }
         }
     }
-
+    
+    
     //屏键控制飞船部份
     private shipleft(pos: Array<number>) {
         let ww = pos[0] - (this.width - 80);
         let hh = pos[1] - (this.height / 2 - 60);
         if ((ww > 0 && ww < 40) && (hh > 0 && hh < 30)) {
-            this.my_ship.decrement_angle_vel();
+            if(!this.sleft){
+                this.my_ship.decrement_angle_vel();
+                if(!this.sright){
+                    this.sleft = true;
+                }
+                else{
+                    this.sright = false;
+                }
+            }
+            else{
+                 this.my_ship.increment_angle_vel();
+                 this.sleft = false;
+            }
         }
     }
 
@@ -365,9 +366,20 @@ export class Main {
         let ww = pos[0] - (this.width - 80);
         let hh = pos[1] - (this.height / 2 + 60);
         if ((ww > 0 && ww < 40) && (hh > 0 && hh < 30)) {
-            this.my_ship.increment_angle_vel();
+            if(!this.sright){
+                this.my_ship.increment_angle_vel();
+                if(!this.sleft){
+                    this.sright = true;
+                }
+                else{
+                    this.sleft = false;
+                }
+            }
+            else{
+                this.my_ship.decrement_angle_vel();
+                this.sright = false;
+            }
         }
-
     }
 
     private shipfront(pos: Array<number>) {
@@ -390,6 +402,7 @@ export class Main {
         let hh = pos[1] - (this.height / 2 - 40);
         if ((ww > 0 && ww < 40) && (hh > 0 && hh < 80)) {
             this.my_ship.shoot((missile_pos: Array<number>, missile_vel: Array<number>, angle: number) => {
+                missile_vel = [missile_vel[0]*this.width/1600, missile_vel[1]*this.width / 1600];
                 if (this.missile_group.length < 3) {
                     var a_missile = new Sprite(missile_pos, missile_vel, angle, 0, this.images.shot2, this.imagesInfo.shot2, this.sounds.missile);
                     this.missile_group.push(a_missile);
@@ -397,5 +410,4 @@ export class Main {
             });
         }
     }
-
 }
