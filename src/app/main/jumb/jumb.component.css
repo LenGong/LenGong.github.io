@@ -22,17 +22,21 @@
 .text-top{
   display: inline-block;
   margin-top: 24%;
-  padding: 20px 10px;
+  padding: 4px;
   text-align: center;
-  border: 2px solid #AAA;
+  border: 2px solid mediumvioletred;
   border-radius: 100%;
-  font-size: 56px;
-  color: #AAA;
+  font-size: 1.5rem;
+  color: red;
   line-height: 56px;
   cursor: pointer;
 }
 
-.text-top:hover{
-  border: 2px solid blue;
-  color: #FFF;
+.text-top, a{
+  text-decoration: none;
+  color: mediumvioletred;
+}
+
+.text-top, a:hover{
+  color: red;
 }

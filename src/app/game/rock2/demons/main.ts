@@ -5,7 +5,7 @@ import { Frame, LoadRes, KeyMapCofig, KeyMap, Timer, Draw, ElementEvent } from '
 //导入资源及Ship and Sprite 类
 import { images, sounds } from '../res/res';
 import { Ship } from './ship';
-import { Sprite } from './Sprite';
+import { Sprite } from './sprite';
 
 @Injectable()
 export class Main {
