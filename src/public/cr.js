@@ -55,11 +55,11 @@
                 elp.style.backgroundColor = bgColor;
                 elp.style.borderRadius = isToRing;
                 elp.style.dispaly = 'none';
-                elp.style.animation= 'anmi 1s  forwards';
+                elp.style.animation= 'anmi 0.5s  forwards';
                 elp.style.zIndex = 10000;
                 setTimeout(function(){
                   elp.parentNode.removeChild(elp);
-                },1000);
+                },500);
 
             }, false);
         }

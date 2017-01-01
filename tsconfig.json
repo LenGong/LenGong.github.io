@@ -1,4 +1,6 @@
 {
+    "compileOnSave": false,
+
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -8,18 +10,38 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": true,
-        "suppressImplicitAnyIndexErrors": true
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "types": [
+            "core-js",
+            "node",
+            "jasmine"
+        ]
     },
 
-    "files": [
-      "./src/main.ts",
-      "./src/polyfills.ts",
-      "./src/vendor.ts"
+    "exclude": [
+        "./dist",
+        "./dest",
+        "./aot",
+        "./webpack-config",
+        "./src/main.aot.ts",
+        "!./node_modules/**/*.d.ts",
+        "node_modules",
+        "**/*.spec.ts"
     ],
 
-    "exclude": [
-        "node_modules"
-    ],
-    
-    "compileOnSave": false
+    "files": [
+        "./src/main.ts",
+        "./src/polyfills.ts",
+        "./src/vendor.ts",
+        "./src/app/resume/resume.module.ts"
+      ],
+
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

@@ -8,9 +8,10 @@
 //
 // // RxJS
 // import  'rxjs/Observable'
-// import  './public/rxjs/rxjs-extensions';
+//import  './public/rxjs/rxjs-extensions';
 
 
 // Other vendors for Bootstrap
 import './public/bootstrap/css/bootstrap.min.css';
 import './public/cr.js';
+import './public/web/web-animations.min.js';

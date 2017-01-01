@@ -13,10 +13,11 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.(html|htm)$/,
-            loader: 'html',
+            loader: 'html-loader',
         }, {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'file?name=images/[name].[hash].[ext]'
+            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|mp3)$/,
+            loader: 'file-loader?name=images/[name].[hash].[ext]'
+        }, {
         }, {
             test: /\.css$/,
             exclude: helpers.root('src', 'app'),
@@ -27,7 +28,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             include: helpers.root('src', 'app'),
-            loader: 'raw'
+            loader:  'raw-loader'
         }]
     },
 

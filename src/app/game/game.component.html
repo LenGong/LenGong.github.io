@@ -1,15 +1,28 @@
 <div class="container">
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
-  <h2>这是<span class="bg-danger">游戏</span>部份模块的地方---占位</h2>
+  <h3 class="text-center">飞船打空石</h3>
+  <p style="text-indent:2em; font-size:16px; line-height: 2;">
+    这是一个利用Angular2框架练习开发的小游戏，本想自适应电脑端和手机端，手机端游览器框架太多，又太奇特，目前只能适应Chrome, Firefox, Edge，并效果很差，Chrome缩放计算方式与Firefox和Edge算法不同。所以电脑端进入游戏之前最好把游览器缩放大小恢复到100%，不然Chrome会超出电脑屏大小，另外两个游览器不会，只是按中心缩放。写得比较初略，手机端速度没调好，快得连子弹都看不见了并没优化，实难控制。手机端横屏进入是横屏状态，竖屏进入是竖屏状态，没有去监听屏幕状态。看来手机端游戏还得利用Ionic2邦定游览框架进行单独开发，所以这个不想再练习修改了，电脑端基本能操作。同鞋们不要见笑哈！
+  </p>
+  <p style="text-indent:2em; font-size:16px; line-height: 2;">
+  游戏操作说明：电脑端空格键发子弹，方向键控制左右转和前进。手机端进入后打开屏幕键操作。源码在<a href="https://github.com/LenGong/LenGong.github.io">这里</a>的src/app/game中，如果你有兴趣的话可以和我一起学习研究Angular2和Ionic2。
+  </p>
+  <hr />
+  <div class="row">
+    <div class="col-xs-4 col-sm-3 imghbig">
+      <img src="/public/images/game1.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-8 col-sm-5 imgbig">
+      <img src="/public/images/game2.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-8 col-sm-4 imgbig">
+      <img src="/public/images/game3.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-6 col-sm-5 imgbig">
+      <img src="/public/images/game4.png" class="img-responsive img-rounded" >
+    </div>
+    <div class="col-xs-6 col-sm-4 imgbig">
+      <img src="/public/images/game5.png" class="img-responsive img-rounded" >
+    </div>
+  </div>
+   <button class="btn btn-warning btn-block" [routerLink]="['../ship_rock']">飞船打太空石</button>
 </div>

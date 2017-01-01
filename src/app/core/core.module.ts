@@ -1,7 +1,6 @@
 import { NgModule, Optional, SkipSelf, OpaqueToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-
 import { BTITLE } from './nav-title.value';
 import { MainService } from './main.service';
 

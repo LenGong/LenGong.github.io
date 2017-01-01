@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import "../public/rxjs/rxjs-extensions";
 
 @Component({
     selector: 'blog-app',
@@ -11,16 +14,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
     isWheel: boolean = false;
-
     ngOnInit() {
-        // let body = document.body;
-        // body.addEventListener('mousewheel', () => {
-        //     this.isWheel = (body.scrollTop > 120) ? true : false;
-        //     console.log(body.scrollTop)
-        // }, false);
-        // 监视屏动，上面方法改用下面的。
-        window.addEventListener('scroll', () => {
-            this.isWheel = (window.pageYOffset > 120) ? true : false;
-        }, false);
+        let win = Observable.fromEvent(window, 'scroll');
+        win.subscribe(() => {this.isWheel = (window.pageYOffset > 120) ? true : false;});
     }
 }

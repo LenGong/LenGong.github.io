@@ -3,15 +3,19 @@
         "target": "es5",
         "module": "es2015",
         "moduleResolution": "node",
-        "sourceMap": true,
+        "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": true,
         "noImplicitAny": true,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./aot",
         "rootDir": "./src",
-        "typeRoots": ["./node_modules/@types"],
+        "typeRoots": [
+          "./node_modules/@types"
+        ],
         "types": [
             "core-js",
             "node"
@@ -20,15 +24,10 @@
 
     "files": [
         "./src/main.ts",
-        "./src/app/game/game.module.ts",
-        "./src/app/picture/picture.module.ts",
         "./src/polyfills.ts",
-        "./src/vendor.ts"
-    ],
-
-    "exclude": [
-        "node_modules"
-    ],
+        "./src/vendor.ts",
+        "./src/app/resume/resume.module.ts"
+      ],
 
     "angularCompilerOptions": {
         "genDir": "./aot/ng",
