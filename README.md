@@ -1,1 +1,2 @@
-Len's Pages Blog is creating...
+The blog is created by Angular2
+===============================
